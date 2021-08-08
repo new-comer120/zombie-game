@@ -1,4 +1,5 @@
 var zombie_map;
+var old_position;
 var all_markers = []
 var data = `51.90769026213801 -2.068905830383301 zombie.png
     51.91174087287536 -2.0681333541870117 hospital.png
@@ -33,9 +34,15 @@ function initMap() {
         })
         all_markers.push(marker);
     }
+
+    old_position = new google.maps.Marker({
+        position: {lat: 20.888203, lng: 106.6033584},
+        map: zombie_map
+    })
 }
 
 function set_my_position(position) {
+    old_position.setMap(null);
     var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     var marker = new google.maps.Marker({
         position: pos,
@@ -43,4 +50,5 @@ function set_my_position(position) {
         zoom: 10,
         icon: "player.png"
     })
+    old_position = marker;
 }
