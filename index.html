@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where's Zombie?</title>
+</head>
+<body>
+  <script src="script.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWGXg_RSw9rkOhYPvaSQ19yEGE9VPkJiY&callback=initMap">
+  </script>
+</body>
+My zombie map
+<div id="zombie_map"></div>
+  <form>
+    Select an emoji
+    <select id="icon_to_use">
+      <option value="zombie.png">Zombie</option>
+      <option value="hospital.png">Hospital</option>
+      <option value="weapons.png">Weapons</option>
+  </select>
+  </form>
+</html>
