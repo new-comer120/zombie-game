@@ -1,6 +1,6 @@
 #zombie_map {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vh;
     left: 0;
     position: absolute;
     top: 0;

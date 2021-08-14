@@ -11,8 +11,8 @@ var markers = data.split("\n");
 function initMap() {
     var emoji = document.getElementById('icon_to_use')
     zombie_map = new google.maps.Map(document.getElementById('zombie_map'), {
+        center: {lat: 20.888203, lng: 106.6033584},
         zoom: 10,
-        center: {lat: 20.888203, lng: 106.6033584}
     })
     if(navigator.geolocation) {
         navigator.geolocation.watchPosition(set_my_position);
