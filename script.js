@@ -1,4 +1,6 @@
-var zombie_map;
+let zombie_map;
+var score;
+var tolerance;
 var old_position;
 var all_markers = []
 var data = `51.90769026213801 -2.068905830383301 zombie.png
@@ -35,9 +37,9 @@ function initMap() {
         all_markers.push(marker);
     }
 
-    old_position = new google.maps.Marker({
+    old_position = new google.maps.Marker(document.getElementById('zombie_map'), {
         position: {lat: 20.888203, lng: 106.6033584},
-        map: zombie_map
+        zoom: 
     })
 }
 
@@ -51,4 +53,20 @@ function set_my_position(position) {
         icon: "player.png"
     })
     old_position = marker;
+    for(var i=0; i < all_markers.length; i++) {
+        var distance = google.maps.geometry.spherical.computeDistanceBetween(pos, all_markers.setMap(null));
+        if( distance < tolerance ){
+            var what_is_it = all_markers[i].setMap(null);
+            what_is_it = what_is_it.replace("hospital", "");
+            alert("Found the", what_is_it);
+
+            all_markers[i].setMap(null);
+
+            // Add your code here
+            if (what_is_it != "zombie") {
+                score += 10;
+                alert("Your score is", score);
+            }
+        }
+    }
 }
